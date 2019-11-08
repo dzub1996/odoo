@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="educenter.list">
+      <field name="name">educenter list</field>
+      <field name="model">educenter.courses</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="course_name"/>
+          <field name="language_name"/>
+          <field name="price"/>
+        </tree>
+      </field>
+    </record>
+   
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="educenter.action_window">
+      <field name="name">educenter window</field>
+      <field name="res_model">educenter.courses</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+   
+
+    <!-- server action to the one above -->
+    
+    <record model="ir.actions.server" id="educenter.action_server">
+      <field name="name">educenter server</field>
+      <field name="model_id" ref="model_educenter_courses"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+   
+
+    <!-- Top menu item -->
+    
+    <menuitem name="educenter" id="educenter.menu_root"/>
+   
+    <!-- menu categories -->
+    
+    <menuitem name="Menu 1" id="educenter.menu_1" parent="educenter.menu_root"/>
+    <menuitem name="Menu 2" id="educenter.menu_2" parent="educenter.menu_root"/>
+   
+    <!-- actions -->
+    
+    <menuitem name="Courses" id="educenter.menu_1_list" parent="educenter.menu_1"
+              action="educenter.action_window"/>
+    <menuitem name="Server to list" id="educenter" parent="educenter.menu_2"
+              action="educenter.action_server"/>
+   
+  </data>
+</odoo>
