@@ -6,7 +6,7 @@ class courses(models.Model):
     _name = 'educenter.courses'
 
     course_name = fields.Char()
-    language_name = fields.Char()
+    language_name = fields.Many2one('educenter.languages')
     price = fields.Integer()
     # value = fields.Integer()
     # value2 = fields.Float(compute="_value_pc", store=True)
@@ -18,7 +18,7 @@ class courses(models.Model):
 class languages(models.Model):
     _name = 'educenter.languages'
 
-    language_name = fields.Char()
+    name = fields.Char()
     teacher = fields.Char()
 
 class group(models.Model):
@@ -44,4 +44,5 @@ class schedule(models.Model):
     group_name = fields.Char()
     course_name = fields.Char()
     language_name = fields.Char()
-    time = fields.Datetime()
+    time_begin = fields.Datetime()
+    time_end = fields.Datetime()
