@@ -1,2 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_educenter_courses,educenter.courses,model_educenter_courses,,1,1,1,1
+access_educenter_languages,educenter.languages,model_educenter_languages,,1,1,1,1
+access_educenter_group,educenter.group,model_educenter_group,,1,1,1,1
+access_educenter_teacher,educenter.teacher,model_educenter_teacher,,1,1,1,1
+access_educenter_schedule,educenter.schedule,model_educenter_schedule,,1,1,1,1
