@@ -4,3 +4,4 @@ access_educenter_languages,educenter.languages,model_educenter_languages,,1,1,1,
 access_educenter_group,educenter.group,model_educenter_group,,1,1,1,1
 access_educenter_teacher,educenter.teacher,model_educenter_teacher,,1,1,1,1
 access_educenter_schedule,educenter.schedule,model_educenter_schedule,,1,1,1,1
+access_educenter_levels,educenter.levels,model_educenter_levels,,1,1,1,1
