@@ -7,8 +7,9 @@
       <field name="model">educenter.courses</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="course_name"/>
+          <field name="name"/>
           <field name="language_name"/>
+          <field name="level_name"/>
           <field name="price"/>
         </tree>
       </field>
@@ -30,7 +31,7 @@
       <field name="model">educenter.group</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="group_name"/>
+          <field name="name"/>
           <field name="student_Name"/>
           <field name="student_Surname"/>
           <field name="student_Patronic"/>
@@ -44,10 +45,11 @@
       <field name="model">educenter.teacher</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="teacher_Name"/>
-          <field name="teacher_Surname"/>
-          <field name="teacher_Patronic"/>
-          <field name="language_name"/>
+          <field name="teacher_name"/>
+          <field name="surname"/>
+          <field name="patronic"/>
+          <!-- <field name="name"/> -->
+          <!-- <field name="language_name"/> -->
         </tree>
       </field>
     </record>
@@ -62,6 +64,16 @@
           <field name="language_name"/>
           <field name="time_begin"/>
           <field name="time_end"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="educenter.list6">
+      <field name="name">educenter list</field>
+      <field name="model">educenter.levels</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
         </tree>
       </field>
     </record>
@@ -98,6 +110,12 @@
       <field name="res_model">educenter.schedule</field>
       <field name="view_mode">tree,form</field>
     </record>
+
+    <record model="ir.actions.act_window" id="educenter.action_window6">
+      <field name="name">educenter window</field>
+      <field name="res_model">educenter.levels</field>
+      <field name="view_mode">tree,form</field>
+    </record>
    
 
     <!-- server action to the one above -->
@@ -127,16 +145,18 @@
    
     <!-- actions -->
     
-    <menuitem name="Courses" id="educenter.menu_1_list" parent="educenter.menu_1"
+    <menuitem name="Курсы" id="educenter.menu_1_list" parent="educenter.menu_1"
               action="educenter.action_window"/>
-    <menuitem name="Languages" id="educenter.menu_1_list2" parent="educenter.menu_1"
+    <menuitem name="Языки" id="educenter.menu_1_list2" parent="educenter.menu_1"
               action="educenter.action_window2"/>
-    <menuitem name="Group" id="educenter.menu_1_list3" parent="educenter.menu_1"
+    <menuitem name="Группы" id="educenter.menu_1_list3" parent="educenter.menu_1"
               action="educenter.action_window3"/>
-    <menuitem name="Teacher" id="educenter.menu_1_list4" parent="educenter.menu_1"
+    <menuitem name="Преподаватели" id="educenter.menu_1_list4" parent="educenter.menu_1"
               action="educenter.action_window4"/>
-    <menuitem name="Schedule" id="educenter.menu_1_list5" parent="educenter.menu_1"
+    <menuitem name="Расписание" id="educenter.menu_1_list5" parent="educenter.menu_1"
               action="educenter.action_window5"/>
+    <menuitem name="Уровни обучения" id="educenter.menu_1_list6" parent="educenter.menu_1"
+              action="educenter.action_window6"/>
     <menuitem name="Server to list" id="educenter" parent="educenter.menu_2"
               action="educenter.action_server"/>
    
