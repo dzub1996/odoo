@@ -1,0 +1,28 @@
+﻿<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    var request = new XMLHttpRequest();
+    request.open("POST", "http://localhost:8069/ajax/search_schedule", true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.onreadystatechange = function() {
+    if (this.readyState === 4) {
+        if (this.status >= 200 && this.status < 400) {
+        // Success!
+            var resp = this.responseText;
+            alert('Ответ: '+resp);
+    } else {
+      // Error :(
+        var resp = this.responseText;
+        alert('Ошибка ' + resp);
+    }
+  }
+};
+//request.send(data);
+request.send(JSON.stringify({query:"Для взрослых"}));
+</script>
+<!-- <form action=""><input type="search" id="search-text"> <input type="submit"></form> -->
+</body>
+</html> 
